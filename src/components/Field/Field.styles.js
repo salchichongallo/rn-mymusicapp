@@ -11,6 +11,7 @@ export const Label = styled(Text)`
 export const ErrorMessage = styled(Text)`
   font-size: 14px;
   color: #fa2f31;
+  font-family: 'Poppins-Regular';
 `;
 
 export const StyledView = styled(View)`
