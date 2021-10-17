@@ -3,6 +3,8 @@ import * as Yup from 'yup';
 import {Formik} from 'formik';
 import {StatusBar, View} from 'react-native';
 
+import {useAuth} from '../../auth';
+
 import Button from '../../components/Button';
 import Background from '../../components/Background';
 import Center from '../../components/Center';
@@ -24,13 +26,18 @@ const registerSchema = Yup.object().shape({
     .required('Required!'),
 });
 
-function SignUp({onSubmit, navigation}) {
+function SignUp({navigation}) {
+  const {onAuth} = useAuth();
+  const handleSubmit = ({username}) => {
+    onAuth({username});
+    navigation.navigate('Home');
+  };
   return (
     <Background>
       <StatusBar barStyle="light-content" />
       <Center>
         <Formik
-          onSubmit={onSubmit}
+          onSubmit={handleSubmit}
           initialValues={{username: '', password: ''}}
           validationSchema={registerSchema}>
           <View style={styles.container}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Image, View} from 'react-native';
+import {useUser} from '../../auth';
 import Background from '../../components/Background';
 import SongListItem, {
   SongLikeButton,
@@ -10,6 +11,7 @@ import LikedSongsLink from './LikedSongsLink';
 import UserName from './UserName';
 
 function Home() {
+  const {username} = useUser();
   return (
     <Background>
       <View style={styles.header}>
@@ -22,7 +24,7 @@ function Home() {
       </View>
       <View style={styles.subHeader}>
         <Title>Home</Title>
-        <UserName>salchichongallo</UserName>
+        <UserName>{username}</UserName>
       </View>
       <View style={styles.songsSection}>
         <Text style={styles.sectionTitle}>Songs</Text>
