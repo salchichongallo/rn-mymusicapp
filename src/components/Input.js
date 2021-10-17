@@ -14,6 +14,7 @@ const Input = styled(TextInput).attrs({
   letter-spacing: 0.2px;
   padding-left: 16px;
   padding-right: 16px;
+  font-family: 'Poppins-Regular';
 `;
 
 export default Input;
