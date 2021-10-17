@@ -8,7 +8,7 @@ import Field from '../../components/Field';
 import Input from '../../components/Input';
 import {styles} from './SignIn.styles';
 
-function SignIn({onSignUp}) {
+function SignIn({navigation}) {
   return (
     <Background>
       <StatusBar barStyle="light-content" />
@@ -23,8 +23,11 @@ function SignIn({onSignUp}) {
           <Field label="Password" style={styles.field}>
             <Input secureTextEntry placeholder="Your Password" />
           </Field>
-          <Button>Login</Button>
-          <Button onPress={onSignUp} secondary style={styles.actionButton}>
+          <Button onPress={() => navigation.navigate('Home')}>Login</Button>
+          <Button
+            onPress={() => navigation.navigate('SignUp')}
+            secondary
+            style={styles.actionButton}>
             Register
           </Button>
         </View>
