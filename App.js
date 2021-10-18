@@ -1,4 +1,5 @@
 import React from 'react';
+import {LogBox} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -9,6 +10,8 @@ import SignIn from './src/pages/SignIn/SignIn';
 import SignUp from './src/pages/SignUp/SignUp';
 
 const {Navigator, Screen} = createNativeStackNavigator();
+
+LogBox.ignoreLogs([/AsyncStorage has been extracted/, /Require cycle/]);
 
 function App() {
   return (
