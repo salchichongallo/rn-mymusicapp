@@ -4,6 +4,7 @@ import {Formik} from 'formik';
 import {StatusBar, View} from 'react-native';
 
 import {useAuth} from '../../auth';
+import AuthService from '../../services/AuthService';
 
 import Button from '../../components/Button';
 import Background from '../../components/Background';
@@ -28,10 +29,17 @@ const loginSchema = Yup.object().shape({
 
 function SignIn({navigation}) {
   const {onAuth} = useAuth();
-  const handleSubmit = ({username}) => {
-    onAuth({username});
-    navigation.navigate('Home');
+
+  const handleSubmit = async (credentials, form) => {
+    try {
+      const user = await AuthService.signIn(credentials);
+      onAuth(user);
+      navigation.navigate('Home');
+    } catch (error) {
+      form.setFieldError('password', error);
+    }
   };
+
   return (
     <Background>
       <StatusBar barStyle="light-content" />
