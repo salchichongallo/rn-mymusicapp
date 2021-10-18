@@ -1,12 +1,12 @@
 import React from 'react';
 import {Pressable, Image, StyleSheet} from 'react-native';
 
-function SongLikeButton({liked = false}) {
+function SongLikeButton({onPress, liked = false}) {
   const likeImage = liked
     ? require('../../assets/heart-filled.png')
     : require('../../assets/heart-outline.png');
   return (
-    <Pressable style={styles.likeButton}>
+    <Pressable onPress={onPress} style={styles.likeButton}>
       <Image
         source={likeImage}
         style={styles.likeButtonIcon}
