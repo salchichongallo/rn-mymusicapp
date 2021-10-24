@@ -9,7 +9,7 @@ function SongListItem({song, rightAction}) {
       <Thumbnail source={{uri: image}} fadeDuration={0} />
       <View style={styles.content}>
         <TrackName numberOfLines={1}>{name}</TrackName>
-        <Artist>{artist}</Artist>
+        <Artist numberOfLines={1}>{artist}</Artist>
       </View>
       <View>{rightAction}</View>
     </View>
